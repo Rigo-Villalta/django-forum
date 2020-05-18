@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block title %}{% trans "Sign Up" %}{% endblock %}
+
+{% block content %}
+<div class="container mt-2">
+  <div class="row">
+    <div class="col-12 col-md-8 col-lg-6">
+      <h2>{% trans "Signup" %}</h2>
+      <form method="post">
+        <div class="form-group">
+          {% csrf_token %}
+          {{ form|crispy }}
+          <button class="btn btn-info" type="submit">{% trans "Sign Up" %}</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

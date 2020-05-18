@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title%}Foro{% endblock title %}
+
+{% block content%}
+{% if user.is_authenticated %}
+<div class="container">
+    <h2 class="mt-2">{% trans "Welcome to the forum" %} {{ user.username }}</h2>
+</div>
+{% else %}
+<div class="container">
+    <h1>{% trans "Welcome to the forum" %}</h1>
+    <h3>{% trans "You have not login"%}</h3>
+</div>
+{% endif %}
+{% endblock content %}
