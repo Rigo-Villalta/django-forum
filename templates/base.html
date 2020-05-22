@@ -29,10 +29,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">{% trans "Home" %}<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{% url 'home' %}">{% trans "Home" %}<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">{% trans "Forums" %}</a>
+          <a class="nav-link" href="{% url 'forum' %}">{% trans "Forums" %}</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0 ml-auto">
@@ -63,7 +63,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="{% url 'login' %}">{% trans "Login" %}</a>
-            <a class="dropdown-item" href="{% url 'signup' %}">{% trans "Signup" %}</a>
+            <a class="dropdown-item" href="{% url 'signup' %}">{% trans "Sign Up" %}</a>
             <a class="dropdown-item" href="{% url 'password_reset' %}">{% trans "Forgot Password" %}</a>
           </div>
         </li>
@@ -73,7 +73,7 @@
   </nav>
 
   <!-- navbar end -->
-  {% block content%}
+  {% block content %}
   <h1>Contenido</h1>
   {% endblock content %}
 
@@ -81,11 +81,11 @@
     <div class="conteiner-fluid mt-4 mb-4 pb-2">
       <div class="row">
         <div class="col-12 col-md-6">
-          <p class=" text-center mt-3 pt-2">{% trans "Título de foto" %}</p>
-          <p class="text-center">{% trans "Descripción de foro" %}</p>
+          <p class=" text-center mt-3 pt-2">{% trans "Forum name" %}</p>
+          <p class="text-center">{% trans "Short forum description" %}</p>
         </div>
         <div class="col-12 col-md-6 ">
-          <p class="modal-body text-center">{% trans "Información del foro" %}<br>
+          <p class="modal-body text-center">{% trans "Forum Info" %}<br>
             PBX: 2222-2222, email: info@foro.com</p>
         </div>
       </div>

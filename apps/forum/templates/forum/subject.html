@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}Forums{% endblock title %}
+
+{% block content%}
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-3 mb-2 border-bottom">
+      <h4>{{ subject.title }}</h4>
+    </div>
+    <div class="col-12 bg-light p-3 border">{% trans 'Author: ' %}{{ subject.author }}. {% trans 'Created' %}.</div>
+    <div class="col-12 p-3 border">{{ subject.text }}</div>
+  </div>
+  <div class="row">
+    <div class="col-12 mt-2 border-bottom">
+      <h4>{% trans 'Answers' %}</h4>
+    </div>
+  </div>
+  <div class="row">
+    {% for comment in  answers %}
+    <div class="col-12 bg-light mt-2 p-3 border">{% trans 'Author: ' %}{{ comment.author }}. {% trans 'Created' %}.
+    </div>
+    <div class="col-12 p-3 border">{{ comment.text }}</div>
+    {% endfor %}
+  </div>
+  <div class="row">
+    <div class="col-12 mt-2 p-3">
+      {% if answers.has_other_pages %}
+      <ul class="pagination">
+        {% if answers.has_previous %}
+        <li class="page-item disable"><a class="page-link" href="?page={{ answers.previous_page_number }}">&laquo; {% trans 'Previous' %}</a></li>
+        {% endif %}
+        <li class="page-item active"><a class="page-link" href="?page={{ answers.number }}">{{ answers.number }}</a></li>
+        {% if answers.has_next %}
+        <li class="page-item disable"><a class="page-link" href="?page={{ answers.next_page_number }}">&raquo; {% trans 'Next' %}</a></li>
+        {% endif %}
+      </ul>
+      {% endif %}
+    </div>
+  </div>
+</div>
+ 
+
+
+{% endblock content %}

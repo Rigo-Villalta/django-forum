@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import sys
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -30,8 +31,12 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+SITE_ROOT = os.path.dirname(os.path.realpath(__name__))
+sys.path.insert(0, os.path.join(SITE_ROOT, 'apps'))
+
 INSTALLED_APPS = [
     "accounts.apps.AccountsConfig",
+    "forum.apps.ForumConfig",
     "crispy_forms",
     "django.contrib.admin",
     "django.contrib.auth",
@@ -96,11 +101,13 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",},
 ]
 
+AUTH_USER_MODEL = "accounts.User"
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
 
-LANGUAGE_CODE = "en"
+LANGUAGE_CODE = "es"
 
 TIME_ZONE = "UTC"
 
@@ -110,13 +117,13 @@ USE_L10N = True
 
 USE_TZ = True
 
+LOCALE_PATHS = (os.path.join(SITE_ROOT, "locale"),)
+
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = "/static/"
-
-AUTH_USER_MODEL = "accounts.User"
 
 LOGIN_REDIRECT_URL = "home"
 
@@ -124,4 +131,4 @@ LOGOUT_REDIRECT_URL = "home"
 
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

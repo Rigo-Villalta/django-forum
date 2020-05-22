@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ object.title }}{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <ul class="list-group pt-5">
+        <li class="list-group-item bg-light">{{ object.title }}</li>
+      {% for subject in object.subject_set.all %}
+        <li class="list-group-item pl-5"><a href="{{ subject.get_absolute_url }}">{{ subject.title }}</a></li>
+      </ul>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
