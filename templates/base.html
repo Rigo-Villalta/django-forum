@@ -10,8 +10,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/sandstone/bootstrap.min.css" rel="stylesheet">
 
   <title>{% block title%}Forum{% endblock %}</title>
 </head>
@@ -40,7 +39,7 @@
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">{% trans "Search" %}</button>
       </form>
       {% if user.is_authenticated %}
-      <ul class="navbar-nav">    
+      <ul class="navbar-nav">
         <li class="nav-item dropleft">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
@@ -54,11 +53,11 @@
           </div>
         </li>
       </ul>
-        {% else %}
-        <ul class="navbar-nav">
+      {% else %}
+      <ul class="navbar-nav">
         <li class="nav-item dropleft">
-          <a class="nav-link dropdown-toggle" href="{% url 'signup' %}" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" href="{% url 'signup' %}" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             {% trans "Login" %}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">

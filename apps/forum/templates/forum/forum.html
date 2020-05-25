@@ -9,10 +9,10 @@
         <div class="col-12">
             {% for section in object_list %}
             <ul class="list-group pt-5">
-                <li class="list-group-item bg-light">{{ section.title }}: {{ section.description }}</li>
+                <li class="list-group-item bg-light text-black"><h5>{{ section.title }}: {{ section.description }}</h5></li>
                 {% for forum in section.forum_set.all %}
                 <ul class="list-group">
-                    <li class="list-group-item pl-5"><a class="text-info" href="{{ forum.get_absolute_url }}">{{ forum.title }}:</a> {{ forum.description }}</li>
+                    <li class="list-group-item pl-5"><a class="text-info" href="{{ forum.get_absolute_url }}">{{ forum.title }}: {{ forum.description }}</a> </li>
                 </ul>
             </ul>
             {% endfor %}

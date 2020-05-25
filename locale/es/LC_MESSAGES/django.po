@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-20 02:54+0000\n"
+"POT-Creation-Date: 2020-05-25 01:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,35 +18,35 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: templates/base.html:23
+#: templates/base.html:22
 msgid "Forum"
 msgstr "Foro"
 
-#: templates/base.html:32
+#: templates/base.html:31
 msgid "Home"
 msgstr "Inicio"
 
-#: templates/base.html:35
+#: templates/base.html:34
 msgid "Forums"
 msgstr "Foros"
 
-#: templates/base.html:40
+#: templates/base.html:39
 msgid "Search"
 msgstr "Buscar"
 
-#: templates/base.html:50
+#: templates/base.html:49
 msgid "Logout"
 msgstr "Salir"
 
-#: templates/base.html:51 templates/registration/password_change_form.html:17
+#: templates/base.html:50 templates/registration/password_change_form.html:17
 msgid "Change my password"
 msgstr "Cambiar mi contraseña"
 
-#: templates/base.html:53
+#: templates/base.html:52
 msgid "Profile"
 msgstr "Perfil"
 
-#: templates/base.html:62 templates/base.html:65
+#: templates/base.html:61 templates/base.html:64
 #: templates/registration/login.html:6 templates/registration/login.html:12
 #: templates/registration/login.html:17
 #: templates/registration/password_change_done.html:11
@@ -54,24 +54,24 @@ msgstr "Perfil"
 msgid "Login"
 msgstr "Ingresar"
 
-#: templates/base.html:66 templates/signup.html:6 templates/signup.html:12
+#: templates/base.html:65 templates/signup.html:6 templates/signup.html:12
 #: templates/signup.html:17
 msgid "Sign Up"
 msgstr "Registrarse"
 
-#: templates/base.html:67
+#: templates/base.html:66
 msgid "Forgot Password"
 msgstr "Contraseña olvidada"
 
-#: templates/base.html:84
+#: templates/base.html:83
 msgid "Forum name"
 msgstr "Nombre del Foro"
 
-#: templates/base.html:85
+#: templates/base.html:84
 msgid "Short forum description"
 msgstr "Descripción corta el foro"
 
-#: templates/base.html:88
+#: templates/base.html:87
 msgid "Forum Info"
 msgstr "Información del Foro"
 
