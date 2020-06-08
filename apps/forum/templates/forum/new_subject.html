@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load i18n %}
+
+{% block title %}Forums{% endblock title %}
+
+{% block content%}
+
+<div class="container p-2">
+  
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-1 col-md-2"></div>
+      <h3 class="col-12 col-sm-10 col-md-8">{% trans 'New subject: ' %}{{ forum }}</h3>
+      <div class="col-sm-1 col-md-2"></div>
+      <div class="col-sm-1 col-md-2"></div>
+      <div class="col-12 col-sm-10 col-md-8">
+        <form action="{% url 'create_subject' forum.slug %}">
+          <div class="form-group">
+            <label for="tex">{% trans 'Title:' %}</label>
+            <input maxlength="150" class="form-control" aria-describedby="textHelp" type="text" id="title" name="title"
+              placeholder="{% trans 'Title of new subject' %}">
+          </div>
+          <div class="form-group">
+            <label for="text">{% trans 'Text: ' %}</label>
+            <textarea class="form-control" id="text" name="text" rows="3"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="col-sm-1 col-md-2"></div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load i18n %}
+
 {% block title %}{{ object.title }}{% endblock title %}
 
 {% block content %}
@@ -8,13 +10,27 @@
   <div class="row">
     <div class="col-12">
       <ul class="list-group pt-5">
-        <li class="list-group-item bg-light"><h5>{{ object.title }}</h5></li>
-      {% for subject in object.subject_set.all %}
-        <li class="list-group-item pl-5"><a class="text-info" href="{{ subject.get_absolute_url }}">{{ subject.title }}</a></li>
+        <li class="list-group-item bg-light">
+          <h5>{{ object.title }}</h5>
+        </li>
+        {% for subject in object.subject_set.all %}
+        <li class="list-group-item pl-5"><a class="text-info"
+            href="{{ subject.get_absolute_url }}">{{ subject.title }}</a></li>
       </ul>
       {% endfor %}
     </div>
   </div>
 </div>
+
+{% if user.is_authenticated %}
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-5">
+      <button class="btn-info"><a class="text-light"
+          href="{% url 'create_subject' object.slug %}">{% trans 'New Subject' %}</a></button>
+    </div>
+  </div>
+</div>
+{% endif %}
 
 {% endblock content %}

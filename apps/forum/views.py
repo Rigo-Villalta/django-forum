@@ -24,3 +24,9 @@ def subject_details(request, slug):
         'answers': answers
     }
     return render(request, 'forum/subject.html', context)
+
+def create_subject(request, slug):
+    forum = Forum.objects.get(slug=slug)
+    
+    context = { 'forum': forum, }
+    return render(request, 'forum/new_subject.html', context)
