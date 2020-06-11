@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.db.models.base import ObjectDoesNotExist
 from django.utils.text import slugify
 from django.utils.translation import gettext_lazy as _
 from django.urls import reverse
@@ -15,7 +16,7 @@ class Section(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
-        super(Section, self).save(*args, **kwargs)
+        super(Forum, self).save(*args, **kwargs)
 
 
 class Forum(models.Model):
@@ -48,6 +49,15 @@ class Subject(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
+        counter = 1
+        while True:
+            try:
+                Subject.objects.get(slug=self.slug)
+            except ObjectDoesNotExist:
+                break
+            else:
+                self.slug = self.slug + str(counter)
+                counter =+ 1
         super(Subject, self).save(*args, **kwargs)
     
     def get_absolute_url(self):
