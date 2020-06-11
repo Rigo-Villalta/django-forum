@@ -31,9 +31,9 @@ class Forum(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
         super(Forum, self).save(*args, **kwargs)
-    
+
     def get_absolute_url(self):
-        return reverse('forums_detail', kwargs={'slug': self.slug})
+        return reverse("forums_detail", kwargs={"slug": self.slug})
 
 
 class Subject(models.Model):
@@ -49,19 +49,12 @@ class Subject(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.title)
-        counter = 1
-        while True:
-            try:
-                Subject.objects.get(slug=self.slug)
-            except ObjectDoesNotExist:
-                break
-            else:
-                self.slug = self.slug + str(counter)
-                counter =+ 1
+        while Subject.objects.filter(slug=self.slug).exists():
+            self.slug = self.slug + "-a"
         super(Subject, self).save(*args, **kwargs)
-    
+
     def get_absolute_url(self):
-        return reverse('subject_detail', kwargs={'slug': self.slug})
+        return reverse("subject_detail", kwargs={"slug": self.slug})
 
 
 class Comments(models.Model):
