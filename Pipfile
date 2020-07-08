@@ -7,11 +7,9 @@ verify_ssl = true
 
 [packages]
 django = "==2.2.13"
-pylint = "*"
 django-crispy-forms = "*"
+pylint = "*"
+black = "*"
 
 [requires]
 python_version = "3.6"
-
-[pipenv]
-allow_prereleases = true
