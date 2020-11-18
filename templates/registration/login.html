@@ -8,14 +8,14 @@
 {% block content %}
 <div class="container mt-2">
   <div class="row">
-    <div class="col-12 col-md-8 col-lg-6">
+    <div class="col-12 offset-sm-2 col-sm-8 offset-md-3 col-md-6 offset-lg-4 col-lg-4">
       <h2>{% trans "Login" %}</h2>
       <form method="post">
         <div class="form-group">
           {% csrf_token %}
           {{ form|crispy }}
-          <button class="btn btn-info" type="submit">{% trans "Login" %}</button>
         </div>
+        <button class="btn btn-info col-12" type="submit">{% trans "Login" %}</button>
       </form>
     </div>
   </div>
